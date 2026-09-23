@@ -1,0 +1,137 @@
+// ignore_for_file: dangling_library_doc_comments
+
+// /**
+//  * every  single screen is called route ROUTE<T>
+//  * Navigator is a class that connect 2 pages 
+//  *  push source -> destination 
+//  *  buildcontext-> this object, Route -> to new 
+//  *  pop destination -> source 
+//  * Material page route: class helps to tranform the transition  
+//  *  
+//  * buidcontext: i m referring to this object 
+//  *  i am using this context as my reference point 
+//  */
+
+// import 'package:flutter/material.dart'; 
+
+// void main() {
+//   runApp(MyApp()); 
+// }
+
+// class MyApp extends StatelessWidget {
+
+//   const new({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: MyDataConnection(), 
+//     ); 
+//   }
+// }
+
+// class MyDataConnection extends StatefulWidget {
+//   const new({super.key});
+
+
+//   @override
+//   State<MyDataConnection> createState() => _MyDataConnectionState();
+// }
+
+// class _MyDataConnectionState extends State<MyDataConnection> {
+//   // create a list of items and pass the entire object to second class 
+//   final List<String> names = ['sam', 'max']; 
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('My demo to jump from 1 page to another'), 
+//       ),
+//       body: Center(
+//         child: Column(
+//           children: [
+            
+//             Text('First Page'), 
+//             SizedBox(height: 20,),
+//             ElevatedButton(onPressed: () {
+//               // use navigator class to connect multiple screens/routes
+//               // push and pop method refer to destination and source screen 
+//               // Material Page route replaces the current routes and apply
+//               // the  transform activity to the new screen 
+//               // Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen(
+//               //   data: 'some data', data2 : 'second data'
+//               // ))); 
+//               Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen(
+//                 container : names
+//               ))); 
+            
+//             }, child: Text('connect to second screen'))  
+
+
+//             // put a button when click it will go to page 2 
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class SecondScreen extends StatefulWidget {
+//   // const new({super.key});
+//   // final String data, data2; 
+//   final List<String> container; 
+
+//   // when you pass data from other screen, use required keyword for forcing the class
+//   // SecondScreen({required this.data, required this.data2}) 
+//   SecondScreen({required this.container}) 
+
+//   @override
+//   State<SecondScreen> createState() => _SecondScreenState();
+
+// }
+
+// class _SecondScreenState extends State<SecondScreen> {
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Second page'),
+//       ),
+//       body: Center(
+//         /**
+//          * When we have listview we should not use colummn because listview 
+//          * and column both use the vertical, the compiler does not know which one 
+//          */
+//         child: Column(
+//           children: [
+//             Text('this is the second page'),
+
+//             SizedBox(height: 20,),
+//             Text('data from first screen: '), 
+//             ElevatedButton(onPressed: () {
+//               Navigator.pop(context);  
+//             }, 
+//             child: Text('Go the the first page')),
+//             /**
+//              * I want the length of the object and yse list tile to customzie the 
+//              * dara in the scrollable listview 
+//              */
+//             ListView.builder(
+//               // tell how many data is comming
+//               itemCount: container.length, 
+//               // I use index cos List is accessed by the index that starts from 0 ... length
+//               itemBuilder: (context, index) {
+//                 // List tile is easy to display in each row and that is attached with listview 
+//                 return ListTile(title: Text(container[index])); 
+//               }
+//             ), 
+
+//           ],
+
+//         ),
+//       ),
+//     ); 
+//   }
+// }
