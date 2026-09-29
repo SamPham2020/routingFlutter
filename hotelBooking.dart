@@ -71,13 +71,22 @@ class HotelBookingConfirmationScreen extends StatelessWidget {
                   ],
                 ),
 
-                Padding(padding: EdgeInsetsGeometry.symmetric(vertical: 10),
-                  child: Text('Thanks for Booking', style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
+                IntrinsicWidth(
+                  child: Padding(
+                    padding:  EdgeInsetsGeometry.symmetric(vertical: 10),
+                    child: Column(
+                      children: [
+                        Text('Thanks for Booking', style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
+                        ),
+                        const Divider(color: Colors.black12,thickness: 3,),
+                      ],
                     ),
                   ),
                 ),
+
 
                 ElevatedButton(onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
